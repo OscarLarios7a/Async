@@ -118,7 +118,7 @@ Y si quieres solo regresar toda la columna coloca solo el nombre de la columna e
 	$result = $var->get();
 </pre>
 
-<h3>Usar when_no()</h3>
+<h3>Usando when_no()</h3>
 Para usar when_no() debes colocar un array con la columna y el valor a buscar, por ejemplo:
 <pre>
 	// esto retornara el registro que no sea igual 3 de la columna 'Id'
@@ -149,3 +149,13 @@ para regresar columnas que no sean mayor, menor, diferente usa:
 	$var->when_no(['Id'=>'3'], '!=');
 	$result = $var->get();
 </pre>	
+<h3>Usando and()</h3>
+Para poder usar el and() antes de llamarlo debes llamar a when() o a when_no() para poder invocarlo, ejemplo:
+<pre>
+	// esto retornara el registro que tenga el 'Id' = 3 y el 'Nombre' = 3
+	$var = new query();
+  	$var->to('mi_tabla');
+	$var->when(['Id'=>'3']);
+	$var->and(['Nombre'=>'josue']);
+	$result = $var->get();
+</pre>
