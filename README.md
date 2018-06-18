@@ -25,3 +25,16 @@ Antes de efectuar las consultas tienes que ligar el archivo <i>Async.class.php</
     $var = new query();
   </pre>
 </code>
+<h1>Primeras consultas</h1>
+Antes de iniciar una consulta debes agregar el metodo <code>to('tabla')</code> en el cual se agrega el nombre de la tabla.
+<pre>
+  include 'Async/Async.class.php';
+  $var = new query();
+  $var->to('mi_tabla');
+</pre>
+Despues de a ver agregado ese metodo se puede agregar la consulta, ejemplos de consultas:
+<pre>
+  $var->push(['param' => 'value']);// agrega a la tabla los objetos ingresado al array
+  $var->clean();// borra los datos de la tabla metodos ha antecolocar -> when(['param'=>'value'], '='), when_no(['param'=>'value'], '>'), and(['param'=>'value'], '<'), or(['param'=>'value'], '<')
+  $var->edit(['param'=>'value'])// editar el valor 'param' por el valor de value
+</pre>
