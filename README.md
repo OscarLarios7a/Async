@@ -1,6 +1,6 @@
 Async Framework for PHP
 <center>
-  <img src="https://scontent-dfw5-1.xx.fbcdn.net/v/t1.0-9/30741574_247992855770827_1387732786927894528_n.png?_nc_cat=0&oh=eeba211f8506d79c91b722f80d9a9fc5&oe=5BA6FE29" alt="wearecode">
+  <img src="https://scontent-dfw5-1.xx.fbcdn.net/v/t1.0-9/30741574_247992855770827_1387732786927894528_n.png?_nc_cat=0&oh=eeba211f8506d79c91b722f80d9a9fc5&oe=5BA6FE29" style="border-radius: 100%;" alt="wearecode">
 </center>
 © 2018 Async, WeareCode
 <hr>
