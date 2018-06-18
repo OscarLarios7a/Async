@@ -62,11 +62,13 @@ Si se coloca de <code>clean()</code> sin anteponer una condición, la tabla se v
 <h1>get()</h1>
 <i>SELECT * FROM</i><br />
 Para hacer un get() se tiene que usar condiciones por ejemplo:
-   * seleccionar cuando (WHERE) -> when(array, condition) 'campo' => 'valor', condition = >, <, <>, <=, >=, = 
-	 * seleccionar cuando (WHERE NOT) -> when_no(array) 'campo' => 'valor'
-	 * and-> and(array, condition)
-	 * or-> or(array, condition)
-	 * seleccionar hasta (LIMIT) -> limit(int) 'from, to'
-	 * ordenar (ORDER BY) -> order(param,string) 'ASC', 'DESC', 'RAND()''
-	 * contiene (LIKE %i%) ->like(array) 'campo' => 'valor'
-	 * entre dos (BETWEEN) ->middle(value, value)
+<ul>
+   	<li>seleccionar cuando (WHERE) -> when(array, condition) 'campo' => 'valor', condition = >, <, <>, <=, >=, = </li>
+	<li>seleccionar cuando (WHERE NOT) -> when_no(array) 'campo' => 'valor'</li>
+	<li>and-> and(array, condition)</li>
+	<li>or-> or(array, condition)</li>
+	<li>seleccionar hasta (LIMIT) -> limit(int) 'from, to'</li>
+	<li>ordenar (ORDER BY) -> order(param,string) 'ASC', 'DESC', 'RAND()''</li>
+	<li>contiene (LIKE %i%) ->like(array) 'campo' => 'valor'</li>
+	<li>entre dos (BETWEEN) ->middle(value, value)</li>
+</ul>
