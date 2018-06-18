@@ -61,3 +61,12 @@ En el caso de <code>clean()</code> y de <code>get()</code> es diferente ya que s
 Si se coloca de <code>clean()</code> sin anteponer una condición, la tabla se vaciara por completo.
 <h1>get()</h1>
 <i>SELECT * FROM</i><br />
+Para hacer un get() se tiene que usar condiciones por ejemplo:
+   * seleccionar cuando (WHERE) -> when(array, condition) 'campo' => 'valor', condition = >, <, <>, <=, >=, = 
+	 * seleccionar cuando (WHERE NOT) -> when_no(array) 'campo' => 'valor'
+	 * and-> and(array, condition)
+	 * or-> or(array, condition)
+	 * seleccionar hasta (LIMIT) -> limit(int) 'from, to'
+	 * ordenar (ORDER BY) -> order(param,string) 'ASC', 'DESC', 'RAND()''
+	 * contiene (LIKE %i%) ->like(array) 'campo' => 'valor'
+	 * entre dos (BETWEEN) ->middle(value, value)
