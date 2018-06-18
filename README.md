@@ -81,7 +81,7 @@ Para hacer un get() se tiene que usar condiciones por ejemplo:
 <h3>Usando when()</h3>
 Para usar when() debes colocar un array con la columna y el valor a buscar, por ejemplo:
 <pre>
-	// esto retornara el registro que sea igual 3 de la columna 'Id?
+	// esto retornara el registro que sea igual 3 de la columna 'Id'
 	$var = new query();
   	$var->to('mi_tabla');
 	$var->when(['Id'=>'3']);
@@ -89,27 +89,27 @@ Para usar when() debes colocar un array con la columna y el valor a buscar, por 
 </pre>
 para regresar columnas mayor, menor, diferente usa:
 <pre>
-	// esto retornara el registro que sea mayor de 3 de la columna 'Id?
+	// esto retornara el registro que sea mayor de 3 de la columna 'Id'
 	$var = new query();
   	$var->to('mi_tabla');
 	$var->when(['Id'=>'3'], '>');
 	$result = $var->get();
 </pre>
 <pre>
-	// esto retornara el registro que sea menor de 3 de la columna 'Id?
+	// esto retornara el registro que sea menor de 3 de la columna 'Id'
 	$var = new query();
   	$var->to('mi_tabla');
 	$var->when(['Id'=>'3'], '<');
 	$result = $var->get();
 </pre>
 <pre>
-	// esto retornara el registro que sea diferente de 3 de la columna 'Id?
+	// esto retornara el registro que sea diferente de 3 de la columna 'Id'
 	$var = new query();
   	$var->to('mi_tabla');
 	$var->when(['Id'=>'3'], '!=');
 	$result = $var->get();
 </pre>	
-Y si quieres solo regresar toda la columna usa:
+Y si quieres solo regresar toda la columna coloca solo el nombre de la columna entre comillas:
 <pre>
 	// esto retornara el registro 3 de la columna 'Id?
 	$var = new query();
@@ -117,3 +117,35 @@ Y si quieres solo regresar toda la columna usa:
 	$var->when('Id');
 	$result = $var->get();
 </pre>
+
+<h3>Usar when_no()</h3>
+Para usar when_no() debes colocar un array con la columna y el valor a buscar, por ejemplo:
+<pre>
+	// esto retornara el registro que no sea igual 3 de la columna 'Id'
+	$var = new query();
+  	$var->to('mi_tabla');
+	$var->when_no(['Id'=>'3']);
+	$result = $var->get();
+</pre>
+para regresar columnas que no sean mayor, menor, diferente usa:
+<pre>
+	// esto retornara el registro que no sea mayor de 3 de la columna 'Id'
+	$var = new query();
+  	$var->to('mi_tabla');
+	$var->when_no(['Id'=>'3'], '>');
+	$result = $var->get();
+</pre>
+<pre>
+	// esto retornara el registro que no sea menor de 3 de la columna 'Id'
+	$var = new query();
+  	$var->to('mi_tabla');
+	$var->when_no(['Id'=>'3'], '<');
+	$result = $var->get();
+</pre>
+<pre>
+	// esto retornara el registro que no sea diferente de 3 de la columna 'Id'
+	$var = new query();
+  	$var->to('mi_tabla');
+	$var->when_no(['Id'=>'3'], '!=');
+	$result = $var->get();
+</pre>	
