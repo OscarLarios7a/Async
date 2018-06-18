@@ -72,3 +72,48 @@ Para hacer un get() se tiene que usar condiciones por ejemplo:
 	<li>contiene (LIKE %i%) ->like(array) 'campo' => 'valor'</li>
 	<li>entre dos (BETWEEN) ->middle(value, value)</li>
 </ul>
+<pre>
+	// se le asignara a $result el valor obtenido de get(), el cual regresa todos los valores de la tabla
+	$var = new query();
+  	$var->to('mi_tabla');  	
+	$result = $var->get();
+</pre>
+<h3>Usando when()</h3>
+Para usar when() debes colocar un array con la columna y el valor a buscar, por ejemplo:
+<pre>
+	// esto retornara el registro que sea igual 3 de la columna 'Id?
+	$var = new query();
+  	$var->to('mi_tabla');
+	$var->when(['Id'=>'3']);
+	$result = $var->get();
+</pre>
+para regresar columnas mayor, menor, diferente usa:
+<pre>
+	// esto retornara el registro que sea mayor de 3 de la columna 'Id?
+	$var = new query();
+  	$var->to('mi_tabla');
+	$var->when(['Id'=>'3'], '>');
+	$result = $var->get();
+</pre>
+<pre>
+	// esto retornara el registro que sea menor de 3 de la columna 'Id?
+	$var = new query();
+  	$var->to('mi_tabla');
+	$var->when(['Id'=>'3'], '<');
+	$result = $var->get();
+</pre>
+<pre>
+	// esto retornara el registro que sea diferente de 3 de la columna 'Id?
+	$var = new query();
+  	$var->to('mi_tabla');
+	$var->when(['Id'=>'3'], '!=');
+	$result = $var->get();
+</pre>	
+Y si quieres solo regresar toda la columna usa:
+<pre>
+	// esto retornara el registro 3 de la columna 'Id?
+	$var = new query();
+  	$var->to('mi_tabla');
+	$var->when('Id');
+	$result = $var->get();
+</pre>
