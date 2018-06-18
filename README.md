@@ -29,6 +29,8 @@ Antes de iniciar una consulta debes agregar el metodo <code>to('tabla')</code> e
   $var = new query();
   $var->to('mi_tabla');
 </pre>
+<h1>edit()</h1>
+<i>UPDATE</i><br />
 Despues de a ver agregado ese metodo se puede agregar la consulta, ejemplos de consultas:<br>
 <pre>
   include 'Async/Async.class.php';
