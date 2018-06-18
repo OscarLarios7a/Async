@@ -23,7 +23,7 @@ Antes de efectuar las consultas tienes que ligar el archivo <i>Async.class.php</
   </pre>
 </code>
 <h1>Primeras consultas</h1>
-Antes de iniciar una consulta debes agregar el metodo <code>to('tabla')</code> en el cual se agrega el nombre de la tabla.
+Antes de iniciar una consulta debes agregar el método <code>to('tabla')</code> en el cual se agrega el nombre de la tabla.
 <pre>
   include 'Async/Async.class.php';
   $var = new query();
@@ -31,7 +31,7 @@ Antes de iniciar una consulta debes agregar el metodo <code>to('tabla')</code> e
 </pre>
 <h1>edit()</h1>
 <i>UPDATE</i><br />
-Despues de a ver agregado ese metodo se puede agregar la consulta, ejemplos de consultas:<br>
+Después de a ver agregado ese método se puede agregar la consulta, ejemplos de consultas:<br>
 <pre>
   include 'Async/Async.class.php';
   $var = new query();
@@ -40,7 +40,7 @@ Despues de a ver agregado ese metodo se puede agregar la consulta, ejemplos de c
 </pre>
 <h1>push()</h1>
 <i>INSERT INTO</i><br />
-Para agregar un dato a una tabla usamos el metodo: push()
+Para agregar un dato a una tabla usamos el método: push()
 <pre>
   include 'Async/Async.class.php';
   $var = new query();
@@ -54,9 +54,9 @@ En el caso de <code>clean()</code> y de <code>get()</code> es diferente ya que s
   include 'Async/Async.class.php';
   $var = new query();
   $var->to('mi_tabla');
-  $var->when(['Id'=>'3'])// cuando 'Id' sea igual a 3, si deseas usar condiconales agrega un argumento despues del array
+  $var->when(['Id'=>'3'])// cuando 'Id' sea igual a 3, si deseas usar condicionales agrega un argumento después del array
   // $var->when(['Id'=>'3'], '>') o cuando 'Id' sea mayor a 3,  condicionales aceptadas '=' viene por defecto, '>', '<' , '!=', '>=', '<='
-  $var->clean();// borra los datos de la tabla metodos ha antecolocar -> when(['param'=>'value'], '='), when_no(['param'=>'value'], '>'), and(['param'=>'value'], '<'), or(['param'=>'value'], '<')
+  $var->clean();// borra los datos de la tabla métodos ha ante colocar -> when(['param'=>'value'], '='), when_no(['param'=>'value'], '>'), and(['param'=>'value'], '<'), or(['param'=>'value'], '<')
 </pre>
 Si se coloca de <code>clean()</code> sin anteponer una condición, la tabla se vaciara por completo.
 <h1>get()</h1>
@@ -89,21 +89,21 @@ Para usar when() debes colocar un array con la columna y el valor a buscar, por 
 </pre>
 para regresar columnas mayor, menor, diferente usa:
 <pre>
-	// esto retornara el registro que sea mayor de 3 de la columna 'Id'
+	// Esto retornara el registro que sea mayor de 3 de la columna 'Id'
 	$var = new query();
   	$var->to('mi_tabla');
 	$var->when(['Id'=>'3'], '>');
 	$result = $var->get();
 </pre>
 <pre>
-	// esto retornara el registro que sea menor de 3 de la columna 'Id'
+	// Esto retornara el registro que sea menor de 3 de la columna 'Id'
 	$var = new query();
   	$var->to('mi_tabla');
 	$var->when(['Id'=>'3'], '<');
 	$result = $var->get();
 </pre>
 <pre>
-	// esto retornara el registro que sea diferente de 3 de la columna 'Id'
+	// Esto retornara el registro que sea diferente de 3 de la columna 'Id'
 	$var = new query();
   	$var->to('mi_tabla');
 	$var->when(['Id'=>'3'], '!=');
@@ -157,5 +157,53 @@ Para poder usar el and() antes de llamarlo debes llamar a when() o a when_no() p
   	$var->to('mi_tabla');
 	$var->when(['Id'=>'3']);
 	$var->and(['Nombre'=>'josue']);
+	$result = $var->get();
+</pre>
+Usando condiciones menor, mayor, diferente usa:
+<pre>
+	// esto retornara el registro que tenga el 'Id' = 3 y el 'teken' > 3
+	$var = new query();
+  	$var->to('mi_tabla');
+	$var->when(['Id'=>'3']);
+	$var->and(['token'=>'4'], '>');
+	$result = $var->get();
+</pre>
+
+<h3>Usando limit()</h3>
+para ocupar limit('num, num') necesitas colocar el número a empezar y el numero limite, ejemplo:
+<pre>
+	// esto retornara los 3 primeros datos de la columna name
+	$var = new query();
+  	$var->to('mi_tabla');
+	$var->when('name');
+	$var->limit('0, 3');	
+	$result = $var->get();
+</pre>
+<h3>Usando order()</h3>
+para ocupar order(param, order) necesitas colocar el parámetro a ordenar y el orden "ASC,DESC, RAND()":
+<pre>
+	// esto retornara de forma ascendente la columna name
+	$var = new query();
+  	$var->to('mi_tabla');	
+	$var->order('name', 'ASC');	
+	$result = $var->get();
+</pre>
+<h3>Usando like()</h3>
+para ocupar like(['param'=>'value']) necesitas colocar la columna a la cual se le va a buscar y el valor":
+<pre>
+	// esto retornara todos los registros que tengan 'j'
+	$var = new query();
+  	$var->to('mi_tabla');	
+	$var->like(['name'=>'j']);	
+	$result = $var->get();
+</pre>
+<h3>Usando middle()</h3>
+para ocupar middle() necesitas colocar la columna a la cual se le va a buscar y los valores entre los que vas a buscar:
+<pre>
+	// esto retornara todos los los valores entre '3' y '6'
+	$var = new query();
+  	$var->to('mi_tabla');	
+	$var->when('num');
+	$var->middle('3','6');	
 	$result = $var->get();
 </pre>
