@@ -34,18 +34,26 @@ Antes de iniciar una consulta debes agregar el metodo <code>to('tabla')</code> e
 </pre>
 Despues de a ver agregado ese metodo se puede agregar la consulta, ejemplos de consultas:<br>
 <pre>
+  include 'Async/Async.class.php';
+  $var = new query();
+  $var->to('mi_tabla');
   $var->edit(['param'=>'value'])// editar el valor 'param' por el valor de value
 </pre>
 <h1>push()</h1>
-<i>INSERT INTO</i>
+<i>INSERT INTO</i><br />
 Para agregar un dato a una tabla usamos el metodo: push()
 <pre>
+  include 'Async/Async.class.php';
+  $var = new query();
+  $var->to('mi_tabla');
   $var->push(['param' => 'value']);// agrega a la tabla los objetos ingresado al array      
 </pre>
 <h1>clean()</h1>
-<i>DELETE FROM</i>
+<i>DELETE FROM</i><br />
 En el caso de <code>clean()</code> y de <code>get()</code> es diferente ya que se le puede dar condiciones, por ejemplo:
 <pre>
+  include 'Async/Async.class.php';
+  $var = new query();
   $var->to('mi_tabla');
   $var->when(['Id'=>'3'])// cuando 'Id' sea igual a 3, si deseas usar condiconales agrega un argumento despues del array
   // $var->when(['Id'=>'3'], '>') o cuando 'Id' sea mayor a 3,  condicionales aceptadas '=' viene por defecto, '>', '<' , '!=', '>=', '<='
@@ -53,4 +61,4 @@ En el caso de <code>clean()</code> y de <code>get()</code> es diferente ya que s
 </pre>
 Si se coloca de <code>clean()</code> sin anteponer una condición, la tabla se vaciara por completo.
 <h1>get()</h1>
-<i>SELECT * FROM</i>
+<i>SELECT * FROM</i><br />
