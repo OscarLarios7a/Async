@@ -1,7 +1,7 @@
 Async Framework for PHP
-<center>
-  <img src="https://scontent-dfw5-1.xx.fbcdn.net/v/t1.0-9/30741574_247992855770827_1387732786927894528_n.png?_nc_cat=0&oh=eeba211f8506d79c91b722f80d9a9fc5&oe=5BA6FE29" style="border-radius: 100%;" alt="wearecode">
-</center>
+<p class="center">
+  <img src="https://scontent-dfw5-1.xx.fbcdn.net/v/t1.0-9/35400621_270511213518991_3486364755348684800_n.png?_nc_cat=0&oh=3676b6f45c264b416e1930be3b3d41a4&oe=5BBCE836" style="border-radius: 100%;" alt="wearecode">
+</p class="center">
 © 2018 Async, WeareCode
 <hr>
 <h1>Instalación</h1>
@@ -15,10 +15,11 @@ Lo primero que tienes que hacer es editar el archivo <i>install.php</i>, sustitu
   </pre>
 </code>
 <hr>
-<h1>Primeras consultas</h1>
-Antes de effectuar las consultas tienes que ligar el archivo <i>Async.class.php</i>, depues tienes que instanciar la clase <i>query()</i>
+<h1>Instanciar Async</h1>
+Antes de efectuar las consultas tienes que ligar el archivo <i>Async.class.php</i>, después tienes que instanciar la clase <i>query()</i>
 <code>
   <pre>
+    include 'Async/Async.class.php';
     $var = new query();
   </pre>
 </code>
