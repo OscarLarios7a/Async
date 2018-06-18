@@ -32,9 +32,15 @@ Antes de iniciar una consulta debes agregar el metodo <code>to('tabla')</code> e
   $var = new query();
   $var->to('mi_tabla');
 </pre>
-Despues de a ver agregado ese metodo se puede agregar la consulta, ejemplos de consultas:
+Despues de a ver agregado ese metodo se puede agregar la consulta, ejemplos de consultas:<br>
 <pre>
-  $var->push(['param' => 'value']);// agrega a la tabla los objetos ingresado al array
-  $var->clean();// borra los datos de la tabla metodos ha antecolocar -> when(['param'=>'value'], '='), when_no(['param'=>'value'], '>'), and(['param'=>'value'], '<'), or(['param'=>'value'], '<')
+  $var->push(['param' => 'value']);// agrega a la tabla los objetos ingresado al array  
   $var->edit(['param'=>'value'])// editar el valor 'param' por el valor de value
+</pre>
+En el caso de <code>edit()</code> y de <code>get()</code> es diferente ya que se le puede dar condiciones, por ejemplo:
+<pre>
+  $var->to('mi_tabla');
+  $var->when(['Id'=>'3'])// cuando 'Id' sea igual a 3, si deseas usar condiconales agrega un argumento despues del array
+  // $var->when(['Id'=>'3'], '>') o cuando 'Id' sea mayor a 3,  condicionales aceptadas '=' viene por defecto, '>', '<' , '!=', '>=', '<='
+  $var->clean();// borra los datos de la tabla metodos ha antecolocar -> when(['param'=>'value'], '='), when_no(['param'=>'value'], '>'), and(['param'=>'value'], '<'), or(['param'=>'value'], '<')
 </pre>
